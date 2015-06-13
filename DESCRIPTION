@@ -1,0 +1,10 @@
+Package: stegasaur
+Title: Steganography for R
+Version: 0.1.0
+Description: Steganography, starting with a port of jsteg and F5.
+Depends: R (>= 3.2.0)
+License: GPL
+Author: Rich FitzJohn
+Maintainer: Rich FitzJohn <rich.fitzjohn@gmail.com>
+Suggests: testthat
+Imports: jpeg, bitops
