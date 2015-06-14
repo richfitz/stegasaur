@@ -5,15 +5,18 @@
 \alias{lsb_encode}
 \title{Encode text into a lossless image}
 \usage{
-lsb_encode(txt, img)
+lsb_encode(content, img, force_object = FALSE)
 
 lsb_decode(img)
 }
 \arguments{
-\item{txt}{Text contents to save into the file (raw will be
-supported soon).}
+\item{content}{Content to save into the image; can be a text
+string or an arbitrary R object.}
 
 \item{img}{An image matrix to save the message into}
+
+\item{force_object}{Logical: Force saving a scalar text string as
+an R object (will be slightly more space efficient).}
 }
 \description{
 Takes an image matrix from something like \code{readPNG}.  Note

@@ -3,9 +3,11 @@
 ##' will drop the message
 ##'
 ##' @title Encode text into a lossless image
-##' @param txt Text contents to save into the file (raw will be
-##' supported soon).
+##' @param content Content to save into the image; can be a text
+##' string or an arbitrary R object.
 ##' @param img An image matrix to save the message into
+##' @param force_object Logical: Force saving a scalar text string as
+##' an R object (will be slightly more space efficient).
 ##' @export
 ##' @author Rich FitzJohn
 ##' @importFrom png readPNG
@@ -14,11 +16,19 @@
 ##' txt <- "hello from stegasaur"
 ##' img2 <- lsb_encode(txt, img)
 ##' lsb_decode(img2)
-lsb_encode <- function(txt, img) {
+lsb_encode <- function(content, img, force_object=FALSE) {
+  text <- !force_object && is.character(content) && length(content) == 1L
+  if (text) {
+    content <- utf8ToInt(content)
+  } else {
+    content <- serialize(content, NULL)
+  }
+
   img <- lsb_prepare(img)
-  len <- binvalue(nchar(txt), LSB_BITSIZE_LEN)
-  chars <- binvalue(utf8ToInt(txt), LSB_BITSIZE_CHAR)
-  ret <- put_binary_value(c(len, chars), img)
+  bits <- c(binvalue(length(content), LSB_BITSIZE_LEN),
+            as.integer(text),
+            binvalue(content, LSB_BITSIZE_CHAR))
+  ret <- put_binary_value(bits, img)
   ret / 255
 }
 
@@ -28,14 +38,21 @@ lsb_decode <- function(img) {
   img <- lsb_prepare(img)
   i <- seq_len(LSB_BITSIZE_LEN)
   len <- intvalue(img[i] %&% 1L, LSB_BITSIZE_LEN)
-  j <- seq_len(LSB_BITSIZE_CHAR * len) + LSB_BITSIZE_LEN
-  intToUtf8(intvalue(img[j] %&% 1L, LSB_BITSIZE_CHAR))
+  is_text <- as.logical(img[LSB_BITSIZE_LEN + 1L] %&% 1L)
+
+  bits <- img[seq_len(LSB_BITSIZE_CHAR * len) + LSB_BITSIZE_LEN + 1L] %&% 1L
+  bytes <- intvalue(bits, LSB_BITSIZE_CHAR)
+
+  if (is_text) {
+    intToUtf8(bytes)
+  } else {
+    unserialize(as.raw(bytes))
+  }
 }
 
-
 LSB_BITSIZE_LEN  <- 16L
-LSB_BITSIZE_CHAR <- 8L
-INT_LEN <- length(intToBits(0L))
+LSB_BITSIZE_CHAR <- 8L # also for raw
+INT_LEN <- length(intToBits(0L)) # 32L
 
 binvalue <- function(val, bitsize) {
   b <- matrix(as.integer(intToBits(val)), INT_LEN)
