@@ -6,5 +6,6 @@ Steganography for R
 
 * [Jsteg](http://zooid.org/~paul/crypto/jsteg/)
 * [F5](code.google.com/p/f5-steganography/) ([python port](https://github.com/jackfengji/f5-steganography))
+* [LSB](https://github.com/RobinDavid/LSB-Steganography)
 
 The aim is to be able to encode arbitrary R objects in cat pictures.

@@ -2,6 +2,7 @@
 ##   Image, math, operator, logging
 ## plus a bunch of stuff from util, but that's it's own stuff.
 
+##' @importFrom jpeg readJPEG
 jpeg_info <- function(image, comment="") {
   n <- 3L
   dat <-
