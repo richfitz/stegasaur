@@ -13,9 +13,6 @@ decode(filename)
 Decode data from an image that has been encoded with
 \code{\link{encode}}.
 }
-\author{
-Rich FitzJohn
-}
 \seealso{
 \code{\link{encode}}, which includes an example.
 }

@@ -6,7 +6,7 @@
 ##' @param file_out Destination filename (can be the same as the
 ##' source filename for a destructive update)
 ##' @export
-##' @author Rich FitzJohn
+##' @examples
 ##' # file included with the package:
 ##' file_in <- system.file("man_with_cats.jpg", package="stegasaur")
 ##' # output a png in a temporary directory:
@@ -38,7 +38,6 @@ encode <- function(content, file_in, file_out) {
 ##' @title Decode data from an image
 ##' @param filename Filename to load
 ##' @export
-##' @author Rich FitzJohn
 ##' @seealso \code{\link{encode}}, which includes an example.
 decode <- function(filename) {
   img <- read_img(filename)
@@ -46,7 +45,7 @@ decode <- function(filename) {
   if (format == "png") {
     lsb_decode(img)
   } else {
-    stop(sprintf("Format %s not supported", format_out))
+    stop(sprintf("Format %s not supported", format))
   }
 }
 

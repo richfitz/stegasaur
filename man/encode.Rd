@@ -18,8 +18,7 @@ source filename for a destructive update)}
 \description{
 Encode data in an image
 }
-\author{
-Rich FitzJohn
+\examples{
 # file included with the package:
 file_in <- system.file("man_with_cats.jpg", package="stegasaur")
 # output a png in a temporary directory:
