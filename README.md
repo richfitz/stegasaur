@@ -4,6 +4,8 @@
 
 Steganography for R
 
+![stegosaur](https://github.com/richfitz/stegasaur/raw/master/inst/stegosaurus.png)
+
 The aim is to be able to encode arbitrary R objects in cat pictures:
 
 ```r
