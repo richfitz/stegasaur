@@ -2,6 +2,7 @@
 
 export(decode)
 export(encode)
+export(figuredout)
 export(kitten)
 export(lsb_decode)
 export(lsb_encode)
