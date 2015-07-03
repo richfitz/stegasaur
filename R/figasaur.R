@@ -11,10 +11,10 @@
 #' @examples
 #' # encode the code in the curly braces into its corresponding plot
 #' # in the file simpleplot.png
-#' figuredout({plot(sample(100))}, "simpleplot.png")
+#' figasaur({plot(sample(100))}, "simpleplot.png")
 #' # extract the information
 #' cat(decode("simpleplot.png"))
-figuredout <- function(code, filename, ...){
+figasaur <- function(code, filename, ...){
 
   # temporary file where we make the plot first
   tmp_plot_file <- tempfile("tmpplot", fileext=".png")
