@@ -31,6 +31,14 @@ stegasaur::decode("kitten.png")
 # [8] 0.6462997 0.1772859 0.2864177
 ```
 
+An additional helper function allows quick encoding in images, when one would like to encode the plot code with the figure:
+
+```{r}
+stegasaur::figasaur({plot(sample(100))}, "randomplot.png")
+```
+
+A [`knitr`](http://yihui.name/knitr/) "hook" (`hook_figasaur`) is also included, so one may automatically encode the generating code with plots throughout a `knitr` document. See `knitr_example.Rmd` in the `inst` directory for an example.
+
 Currently suporting:
 
 * Least-significant-bit ([LSB](https://github.com/RobinDavid/LSB-Steganography))

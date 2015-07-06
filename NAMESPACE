@@ -3,6 +3,7 @@
 export(decode)
 export(encode)
 export(figasaur)
+export(hook_figasaur)
 export(kitten)
 export(lsb_decode)
 export(lsb_encode)
