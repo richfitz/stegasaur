@@ -21,8 +21,8 @@ figasaur <- function(code, filename, ...){
 
   # do the ploting
   png(tmp_plot_file, ...)
+  on.exit(dev.off())
   eval(code)
-  dev.off()
 
   # encode the plotting code into the figure
   stegasaur::encode(paste0(paste(deparse(substitute(code)),collapse="\n"),"\n"),
