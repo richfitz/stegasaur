@@ -8,6 +8,7 @@
 #'
 #' @author David L Miller
 #' @export
+#' @importFrom grDevices png dev.off
 #' @examples
 #' # encode the code in the curly braces into its corresponding plot
 #' # in the file simpleplot.png
@@ -16,13 +17,24 @@
 #' cat(decode("simpleplot.png"))
 figasaur <- function(code, filename, ...){
 
+  #code <- substitute(code)
+
   # temporary file where we make the plot first
   tmp_plot_file <- tempfile("tmpplot", fileext=".png")
 
   # do the ploting
   png(tmp_plot_file, ...)
-  on.exit(dev.off())
-  eval(code)
+
+  # check that code ran okay
+  try_code <- try(eval(code))
+
+  # stop the device
+  dev.off()
+
+  # if something bad happened to the code
+  if(class(try_code)=="try-error"){
+    stop("Code in 'code' caused an error, no image encoded.")
+  }
 
   # encode the plotting code into the figure
   stegasaur::encode(paste0(paste(deparse(substitute(code)),collapse="\n"),"\n"),

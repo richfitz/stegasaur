@@ -4,7 +4,10 @@ Version: 0.1.1
 Description: Steganography, starting with a port of jsteg and F5.
 Depends: R (>= 3.2.0)
 License: GPL
-Author: Rich FitzJohn
+Authors@R: c(
+    person("Rich", "FitzJohn", role = c("aut", "cre"), email = "rich.fitzjohn@gmail.com"),
+    person("David", "Miller", role = "ctb", email = "dave@ninepointeightone.net")
+  )
 Maintainer: Rich FitzJohn <rich.fitzjohn@gmail.com>
 Suggests: testthat, knitr
 Imports: png, jpeg, bitops
