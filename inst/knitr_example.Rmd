@@ -1,0 +1,21 @@
+---
+title: A simple example of `figasaur` hook in `knitr`
+author: David L Miller
+
+---
+
+```{r}
+library(knitr)
+knit_hooks$set(figasaur = hook_figasaur)
+```
+
+# A brief example
+
+Here we show that when we make the figure we can read it back in and get the code that generated it back.
+
+```{r figasaur=TRUE}
+plot(sample(100))
+```
+
+We could now use `stegasaur::decode` on the resulting file to find out how the figure was created (this should display `plot(sample(100))`).
+

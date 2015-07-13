@@ -2,8 +2,12 @@
 
 export(decode)
 export(encode)
+export(figasaur)
+export(hook_figasaur)
 export(kitten)
 export(lsb_decode)
 export(lsb_encode)
+importFrom(grDevices,dev.off)
+importFrom(grDevices,png)
 importFrom(jpeg,readJPEG)
 importFrom(png,readPNG)
