@@ -1,9 +1,10 @@
 Package: stegasaur
 Title: Steganography for R
 Version: 0.1.1
-Description: Steganography, starting with a port of jsteg and F5.
+Description: Basic steganography using "least significant bit" encoding for
+    'png' files.
 Depends: R (>= 3.2.0)
-License: GPL
+License: GPL (>= 2)
 Authors@R: c(
     person("Rich", "FitzJohn", role = c("aut", "cre"),
            email = "rich.fitzjohn@gmail.com"),
