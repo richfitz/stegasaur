@@ -3,7 +3,7 @@
 <!-- badges: start -->
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![R build status](https://github.com/richfitz/stegasaur/workflows/R-CMD-check/badge.svg)](https://github.com/richfitz/stegasaur/actions)
-[![codecov.io](https://codecov.io/github/richfitz/rstegasaur/coverage.svg?branch=master)](https://codecov.io/github/richfitz/rstegasaur?branch=master)
+[![codecov.io](https://codecov.io/github/richfitz/stegasaur/coverage.svg?branch=master)](https://codecov.io/github/richfitz/stegasaur?branch=master)
 [![CodeFactor](https://www.codefactor.io/repository/github/richfitz/stegasaur/badge)](https://www.codefactor.io/repository/github/richfitz/stegasaur)
 ![works?](https://img.shields.io/badge/works-on%20my%20machine-pink)
 <!-- badges: end -->
