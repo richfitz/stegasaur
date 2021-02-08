@@ -44,7 +44,7 @@ test_that("Prevent truncation", {
   data <- rep(0, 10000)
   expect_error(
     lsb_encode(data, img),
-    "Overflow detected: 80031 exceeds 65536 (2^16)",
+    "Overflow detected: [0-9]+ exceeds 65536 (2^16)",
     fixed = TRUE)
   expect_error(
     lsb_encode(rep(0, 8000), img),
