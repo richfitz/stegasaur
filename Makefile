@@ -25,13 +25,11 @@ README.md: README.Rmd
 	sed -i.bak 's/[[:space:]]*$$//' README.md
 	rm -f $@.bak
 
-check: build
-	_R_CHECK_CRAN_INCOMING_=FALSE R CMD check --as-cran --no-manual `ls -1tr ${PACKAGE}*gz | tail -n1`
-	@rm -f `ls -1tr ${PACKAGE}*gz | tail -n1`
-	@rm -rf ${PACKAGE}.Rcheck
+check:
+	_R_CHECK_CRAN_INCOMING_=FALSE make check_all
 
 check_all:
-	REMAKE_TEST_INSTALL_PACKAGES=true make check
+	${RSCRIPT} -e "rcmdcheck::rcmdcheck(args = c('--as-cran', '--no-manual'))"
 
 clean:
 	rm -f src/*.o src/*.so

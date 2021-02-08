@@ -1,9 +1,10 @@
 context("kitten")
 
 test_that("download", {
-  dest <- kitten(200, 300, quiet=TRUE)
-  expect_that(file.exists(dest), is_true())
+  testthat::skip_if_offline()
+  dest <- kitten(200, 300, quiet = TRUE)
+  expect_true(file.exists(dest))
   img <- jpeg::readJPEG(dest)
-  expect_that(img, is_a("array"))
-  expect_that(dim(img), equals(c(300, 200, 3)))
+  expect_is(img, "array")
+  expect_equal(dim(img), c(300, 200, 3))
 })

@@ -3,4 +3,5 @@
 ^\.travis\.yml$
 ^Makefile$
 ^notes\.md$
-^build\.R$
+^scripts$
+^\.lintr$

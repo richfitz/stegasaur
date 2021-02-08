@@ -1,28 +1,52 @@
 context("lsb")
 
 test_that("basic use", {
-  img <- png::readPNG(system.file("img/Rlogo.png", package="png"))
+  img <- png::readPNG(system.file("img/Rlogo.png", package = "png"))
   txt <- "hello from stegasaur"
 
   img2 <- lsb_encode(txt, img)
-  expect_that(lsb_decode(img2), equals(txt))
+  expect_equal(lsb_decode(img2), txt)
 
-  path <- tempfile(fileext=".png")
+  path <- tempfile(fileext = ".png")
   png::writePNG(img2, path)
 
   img3 <- png::readPNG(path)
-  expect_that(lsb_decode(img3), equals(txt))
+  expect_equal(lsb_decode(img3), txt)
 })
 
 test_that("store object", {
-  img <- png::readPNG(system.file("img/Rlogo.png", package="png"))
+  img <- png::readPNG(system.file("img/Rlogo.png", package = "png"))
   x <- 1:10
 
   img2 <- lsb_encode(x, img)
-  expect_that(lsb_decode(img2), is_identical_to(x))
+  expect_identical(lsb_decode(img2), x)
 
-  path <- tempfile(fileext=".png")
+  path <- tempfile(fileext = ".png")
   png::writePNG(img2, path)
   img3 <- png::readPNG(path)
-  expect_that(lsb_decode(img3), equals(x))
+  expect_equal(lsb_decode(img3), x)
+})
+
+
+test_that("Require png", {
+  img <- png::readPNG(system.file("img/Rlogo.png", package = "png"))
+  expect_error(
+    encode("text", img, tempfile(fileext = ".jpg")),
+    "Format 'jpg' not supported")
+  expect_error(
+    decode(tempfile(fileext = ".jpg")),
+    "Format 'jpg' not supported")
+})
+
+
+test_that("Prevent truncation", {
+  img <- png::readPNG(system.file("img/Rlogo.png", package = "png"))
+  data <- rep(0, 10000)
+  expect_error(
+    lsb_encode(data, img),
+    "Overflow detected: 80031 exceeds 65536 (2^16)",
+    fixed = TRUE)
+  expect_error(
+    lsb_encode(rep(0, 8000), img),
+    "Not enough space in image: message length \\(.+ bits\\) > image size")
 })

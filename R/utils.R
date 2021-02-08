@@ -1,15 +1,23 @@
-`%<<%` <- function(x, y) {
-  bitops::bitShiftL(x, y)
+`%&%` <- function(x, y) { # nolint
+  bitwAnd(x, y)
 }
 
-`%>>%` <- function(x, y) {
-  bitops::bitShiftR(x, y)
+
+`%|%` <- function(x, y) { # nolint
+  bitwOr(x, y)
 }
 
-`%&%` <- function(x, y) {
-  bitops::bitAnd(x, y)
+
+read_img <- function(filename) {
+  format <- file_ext(filename)
+  switch(tolower(format),
+         png = png::readPNG(filename),
+         jpeg = jpeg::readJPEG(filename),
+         jpg = jpeg::readJPEG(filename),
+         stop(sprintf("Unknown format '%s'", format)))
 }
 
-`%|%` <- function(x, y) {
-  bitops::bitOr(x, y)
+  
+file_ext <- function(filename) {
+  sub(".*\\.([[:alnum:]]+)$", "\\1", filename)
 }

@@ -38,13 +38,3 @@ stegasaur::figasaur({plot(sample(100))}, "randomplot.png")
 ```
 
 A [`knitr`](http://yihui.name/knitr/) "hook" (`hook_figasaur`) is also included, so one may automatically encode the generating code with plots throughout a `knitr` document. See `knitr_example.Rmd` in the `inst` directory for an example.
-
-Currently suporting:
-
-* Least-significant-bit ([LSB](https://github.com/RobinDavid/LSB-Steganography))
-
-Aiming to support:
-
-* [Jsteg](http://zooid.org/~paul/crypto/jsteg/)
-* [F5](code.google.com/p/f5-steganography/) ([python port](https://github.com/jackfengji/f5-steganography))
-* [GPG](https://www.gnupg.org) for encrypting the embedded data
