@@ -43,4 +43,4 @@ An additional helper function allows quick encoding in images, when one would li
 stegasaur::figasaur({plot(sample(100))}, "randomplot.png")
 ```
 
-A [`knitr`](http://yihui.name/knitr/) "hook" (`hook_figasaur`) is also included, so one may automatically encode the generating code with plots throughout a `knitr` document. See `knitr_example.Rmd` in the `inst` directory for an example.
+A [`knitr`](https://yihui.name/knitr/) "hook" (`hook_figasaur`) is also included, so one may automatically encode the generating code with plots throughout a `knitr` document. See `knitr_example.Rmd` in the `inst` directory for an example.

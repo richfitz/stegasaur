@@ -19,7 +19,7 @@
 ##' stegasaur::kitten(200, 200)
 kitten <- function(width, height,
                    destfile = tempfile("kitten", fileext = ".jpg"), ...) {
-  url <- sprintf("http://placekitten.com/g/%d/%d", width, height)
+  url <- sprintf("https://placekitten.com/g/%d/%d", width, height)
   utils::download.file(url, destfile, ..., mode = "wb")
   destfile
 }
