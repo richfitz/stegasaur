@@ -1,6 +1,12 @@
 # stegasaur
 
-[![Travis-CI Build Status](https://travis-ci.org/richfitz/stegasaur.svg?branch=master)](https://travis-ci.org/richfitz/stegasaur)
+<!-- badges: start -->
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![R build status](https://github.com/richfitz/stegasaur/workflows/R-CMD-check/badge.svg)](https://github.com/richfitz/stegasaur/actions)
+[![codecov.io](https://codecov.io/github/richfitz/rstegasaur/coverage.svg?branch=master)](https://codecov.io/github/richfitz/rstegasaur?branch=master)
+[![CodeFactor](https://www.codefactor.io/repository/github/richfitz/stegasaur/badge)](https://www.codefactor.io/repository/github/richfitz/stegasaur)
+![works?](https://img.shields.io/badge/works-on%20my%20machine-pink)
+<!-- badges: end -->
 
 Steganography for R
 
@@ -37,14 +43,4 @@ An additional helper function allows quick encoding in images, when one would li
 stegasaur::figasaur({plot(sample(100))}, "randomplot.png")
 ```
 
-A [`knitr`](http://yihui.name/knitr/) "hook" (`hook_figasaur`) is also included, so one may automatically encode the generating code with plots throughout a `knitr` document. See `knitr_example.Rmd` in the `inst` directory for an example.
-
-Currently suporting:
-
-* Least-significant-bit ([LSB](https://github.com/RobinDavid/LSB-Steganography))
-
-Aiming to support:
-
-* [Jsteg](http://zooid.org/~paul/crypto/jsteg/)
-* [F5](code.google.com/p/f5-steganography/) ([python port](https://github.com/jackfengji/f5-steganography))
-* [GPG](https://www.gnupg.org) for encrypting the embedded data
+A [`knitr`](https://yihui.name/knitr/) "hook" (`hook_figasaur`) is also included, so one may automatically encode the generating code with plots throughout a `knitr` document. See `knitr_example.Rmd` in the `inst` directory for an example.
