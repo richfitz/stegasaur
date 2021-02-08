@@ -44,8 +44,7 @@ test_that("Prevent truncation", {
   data <- rep(0, 10000)
   expect_error(
     lsb_encode(data, img),
-    "Overflow detected: [0-9]+ exceeds 65536 (2^16)",
-    fixed = TRUE)
+    "Overflow detected: [0-9]+ exceeds 65536 \\(2\\^16\\)")
   expect_error(
     lsb_encode(rep(0, 8000), img),
     "Not enough space in image: message length \\(.+ bits\\) > image size")
