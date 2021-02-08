@@ -8,7 +8,7 @@ encode(content, file_in, file_out)
 }
 \arguments{
 \item{content}{Content to encode: any R object is OK (see
-\code{\link{lsb_encode}}).}
+\link{lsb_encode}).}
 
 \item{file_in}{Source filename}
 
@@ -27,8 +27,8 @@ file_out <- tempfile("kitten", fileext = ".png")
 
 # some random data to encode:
 x <- runif(10)
-encode(x, file_in, file_out)
+stegasaur::encode(x, file_in, file_out)
 
 # extract the data:
-decode(file_out)
+stegasaur::decode(file_out)
 }

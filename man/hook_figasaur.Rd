@@ -22,15 +22,14 @@ package shows a simple example.
 Note that this only works for PNG files generated for HTML
 documents, though it does work when the PNGs are embedded in the
 HTML file (e.g. using the \code{self_contained} option in
-\code{\link[rmarkdown]{render}}. See
-\code{\link[knitr]{chunk_hook}} for more information.
+\link[rmarkdown:render]{rmarkdown::render}. See \link[knitr:opts_hooks]{knitr::opts_hooks} for more information.
 }
 \examples{
 writeLines(readLines(
   system.file("knitr_example.Rmd", package = "stegasaur")))
 }
 \references{
-\url{http://yihui.name/knitr/hooks#chunk_hooks}
+https://yihui.name/knitr/hooks#chunk_hooks
 }
 \seealso{
 encode

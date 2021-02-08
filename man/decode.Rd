@@ -11,8 +11,8 @@ decode(filename)
 }
 \description{
 Decode data from an image that has been encoded with
-\code{\link{encode}}.
+\link{encode}.
 }
 \seealso{
-\code{\link{encode}}, which includes an example.
+\link{encode}, which includes an example.
 }

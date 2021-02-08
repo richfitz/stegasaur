@@ -3,7 +3,7 @@
 ##' @title Encode data in an image
 ##'
 ##' @param content Content to encode: any R object is OK (see
-##'   \code{\link{lsb_encode}}).
+##'   [stegasaur::lsb_encode]).
 ##'
 ##' @param file_in Source filename
 ##'
@@ -20,10 +20,10 @@
 ##'
 ##' # some random data to encode:
 ##' x <- runif(10)
-##' encode(x, file_in, file_out)
+##' stegasaur::encode(x, file_in, file_out)
 ##'
 ##' # extract the data:
-##' decode(file_out)
+##' stegasaur::decode(file_out)
 encode <- function(content, file_in, file_out) {
   format_out <- tolower(file_ext(file_out))
   if (format_out != "png") {
@@ -36,14 +36,14 @@ encode <- function(content, file_in, file_out) {
 
 
 ##' Decode data from an image that has been encoded with
-##' \code{\link{encode}}.
+##' [stegasaur::encode].
 ##'
 ##' @title Decode data from an image
 ##'
 ##' @param filename Filename to load
 ##'
 ##' @export
-##' @seealso \code{\link{encode}}, which includes an example.
+##' @seealso [stegasaur::encode], which includes an example.
 decode <- function(filename) {
   format <- file_ext(filename)
   if (format != "png") {

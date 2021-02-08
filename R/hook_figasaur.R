@@ -9,14 +9,13 @@
 ##'
 ##' Note that this only works for PNG files generated for HTML
 ##' documents, though it does work when the PNGs are embedded in the
-##' HTML file (e.g. using the \code{self_contained} option in
-##' \code{\link[rmarkdown]{render}}. See
-##' \code{\link[knitr]{chunk_hook}} for more information.
+##' HTML file (e.g. using the `self_contained` option in
+##' [rmarkdown::render]. See [knitr::opts_hooks] for more information.
 ##'
 ##' @export
 ##' @author David L Miller
 ##'
-##' @references \url{http://yihui.name/knitr/hooks#chunk_hooks}
+##' @references https://yihui.name/knitr/hooks#chunk_hooks
 ##'
 ##' @param before,options,envir Arguments as required by knitr; please
 ##'   see references for details

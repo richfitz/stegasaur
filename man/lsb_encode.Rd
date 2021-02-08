@@ -19,7 +19,7 @@ string or an arbitrary R object.}
 an R object (will be slightly more space efficient).}
 }
 \description{
-Takes an image matrix from something like \code{readPNG}.  Note
+Takes an image matrix from something like \link[png:readPNG]{png::readPNG}.  Note
 that this cannot be saved out as jpeg as the lossy compression
 will drop the message
 }
