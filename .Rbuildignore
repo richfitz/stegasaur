@@ -5,3 +5,4 @@
 ^notes\.md$
 ^scripts$
 ^\.lintr$
+^\.github$
